@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from app.forms import *
 from app.models import *
 from django.core.mail import send_mail
-
 def registration(request):
     uf=UserForm()
     pf=ProfileForm()
@@ -23,6 +22,13 @@ def registration(request):
             MPFDO=pf.save(commit=False)
             MPFDO.username=MUFDO
             MPFDO.save()
+
+            send_mail('registration',
+                      'Thank You For Registration',
+                      'lovies23july2023@gmail.com',
+                      [MUFDO.email],
+                      fail_silently=False,
+                      )
             return HttpResponse('Registration data succsessfully')
         else:
             return HttpResponse('Invalid Data')
