@@ -1,5 +1,5 @@
 """
-URL configuration for user_registration_form project.
+URL configuration for balaji30_User_Registration project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -23,4 +23,6 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('registration/',registration,name='registration'),
+    path('home/',home,name='home'),
+    path('user_login/',user_login,name='user_login'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
